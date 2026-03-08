@@ -1,5 +1,5 @@
-const HF_MODEL = "sentence-transformers/all-MiniLM-L6-v2";
-const HF_API = "https://api-inference.huggingface.co/models";
+const HF_MODEL = "BAAI/bge-small-en-v1.5";
+const HF_API = "https://router.huggingface.co/hf-inference/models";
 
 export async function embedText(text: string): Promise<number[]> {
   const token = process.env.HF_TOKEN;

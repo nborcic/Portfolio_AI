@@ -1,5 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useSources } from "@/contexts/sources-context";
+
+const STORAGE_KEY = "chat-messages";
 
 type Message = {
   id: string;
@@ -9,23 +11,31 @@ type Message = {
   created_at: string;
 };
 
+function loadStoredMessages(): Message[] {
+  try {
+    const raw = sessionStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveMessages(messages: Message[]) {
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+}
+
 export function Chat() {
-  const { setSources } = useSources();
-  const [messages, setMessages] = useState<Message[]>([]);
+  const { setSources, setSourcesOpen } = useSources();
+  const [messages, setMessages] = useState<Message[]>(loadStoredMessages);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const loadHistory = useCallback(async () => {
-    const res = await fetch("/api/chat/history");
-    if (res.ok) {
-      const data = await res.json();
-      setMessages(data);
-    }
-  }, []);
-
+  // Persist to sessionStorage whenever messages change (tab close = cleared)
   useEffect(() => {
-    loadHistory();
-  }, [loadHistory]);
+    saveMessages(messages);
+  }, [messages]);
 
   const send = async () => {
     const text = input.trim();
@@ -84,7 +94,7 @@ export function Chat() {
         <div className="mx-auto max-w-2xl space-y-4">
           {messages.length === 0 && (
             <p className="py-8 text-center text-zinc-500">
-              Ask a question about the uploaded documents.
+              Ask a question about Nikola.
             </p>
           )}
           {messages.map((m) => (
@@ -100,7 +110,10 @@ export function Chat() {
               {m.role === "assistant" && m.sources && m.sources.length > 0 && (
                 <button
                   type="button"
-                  onClick={() => setSources(m.sources ?? [])}
+                  onClick={() => {
+                    setSources(m.sources ?? []);
+                    setSourcesOpen(true);
+                  }}
                   className="mt-2 text-xs text-amber-500 hover:text-amber-400"
                 >
                   View sources ({m.sources.length})
@@ -141,27 +154,7 @@ export function Chat() {
           </button>
         </form>
       </div>
-
-      <SourcesContent />
     </>
   );
 }
 
-function SourcesContent() {
-  const { sources } = useSources();
-  if (sources.length === 0) return null;
-  return (
-    <div className="lg:hidden">
-      <div className="border-t border-zinc-800 p-4">
-        <h3 className="mb-2 text-sm font-medium text-zinc-400">Sources</h3>
-        <div className="space-y-2">
-          {sources.map((s, i) => (
-            <p key={i} className="rounded bg-zinc-900 p-2 text-xs text-zinc-300">
-              {s.content}
-            </p>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}

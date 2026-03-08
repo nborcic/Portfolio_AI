@@ -1,0 +1,46 @@
+Nikola Borčić
+nikola.nick.borcic@gmail.com| (47) 941-81927| Oslo, Norway                         GitHub
+
+WORK EXPERIENCE 
+
+Project-based Web Developer /Software Engineer                                                                               April 2025 – June 2025
+Omny AS (Oslo, Norway)                
+Key Contributions:
+•	Aligned with the team on required libraries, tooling, and implementation approach.
+•	Developed and refined UI components based on product requirements.
+•	Implemented integration steps to ensure seamless cooperation across the platform.
+•	Ensured performance and responsive behavior of new UI elements across devices and browsers.
+•	Polished styling and layout to strengthen consistency and overall platform cohesion.
+
+Police Sergeant — Cross-Border Crime Investigations		    		                         	Dec 2012 – Feb 2024
+Ministry of the Interior of Croatia (Police Department) (Ston, Croatia)
+Key Contributions:
+•	Collaborated with international law enforcement to prevent cross-border crime and deliver structured investigative reporting.
+•	Developed a disciplined, analytical approach to problem solving, documentation, and stakeholder coordination.
+PERSONAL PROJECTS
+•	
+•	NeretvaApp 
+o	Interactive recreational-area web app	
+o	Technologies: Svelte, TypeScript, Tailwind CSS
+o	Highlights: Interactive app showcasing activities in the Neretva Valley (e.g., bird watching, hiking, kiteboarding, climbing).
+•	Premium Rentals
+o	Rental property website 
+o	Technologies: HTML5, CSS3, Vanilla JS
+o	Highlights: Example property site focused on clean layout, discoverability, and responsive UX.
+•	AI Chat Bot Helper (Personal project)
+o	Chatbot helper tools (prototype)	
+o	Technologies: SvelteKit, JavaScript, Tailwind v4
+o	Highlights: Prototype assistant UI for developing and deploying chatbot helper tools for provided knowledge bases.
+•	Text/PDF AI RAG (Personal project)
+o	Document search and extraction tool (prototype)	
+o	Technologies: SvelteKit, JavaScript, Tailwind v4
+o	Highlights: Prototype tool for extracting and searching information across collections of documents.
+CERTIFICATIONS, INTERESTS & EXTRACURRICULAR
+
+•	Certifications/Trainings: 
+o	Full-Stack JavaScript Development: MongoDB, Node, and React (Oct, 2024)
+o	Node.js Essential Training (Jun 2024)
+•	Interests: Gym, Environmental conservation, freediving, woodworking.
+EDUCATION
+Bachelor's in Engineering				   			                            Mostar, Bosna and Hercegovina
+University of Logos - Bachelor’s Degree in Information Technology                			                2018
